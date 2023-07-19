@@ -1,5 +1,11 @@
 <?php
+$length_pass = $_GET['pass'] ?? 0;
 include __DIR__ . '/function/function.php';
+if (random_pass($length_pass, $characters)) {
+    session_start();
+    $_SESSION['password'] = (random_pass($length_pass, $characters));
+    header('Location: password.php');
+}
 ?>
 
 
